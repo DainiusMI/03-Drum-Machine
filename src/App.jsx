@@ -20,6 +20,7 @@ export default function App() {
     audioSamples.find(sample => {
      if (sample.triggerKey === event.key) {
         document.getElementById(event.key).play()
+        setDisplayScreen(sample.id)
      }
     })
   }
