@@ -15,6 +15,15 @@ export default function App() {
     event.target.firstChild.play()
   }
 
+  document.addEventListener("keypress", handleKeyPress)
+  function handleKeyPress(event) {
+    audioSamples.find(sample => {
+     if (sample.triggerKey === event.key) {
+        document.getElementById(event.key).play()
+     }
+    })
+  }
+
   return (
     <div className="App" id="drum-machine">
       <div className="sample-grid">
