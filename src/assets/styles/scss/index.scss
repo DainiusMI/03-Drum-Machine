@@ -1,0 +1,50 @@
+
+:root {
+
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    border: 0;
+}
+
+body {
+    font-family: 'Rubik Spray Paint', cursive;
+    width: 100vw;
+    height: 100vh;
+
+}
+
+#root {
+    width: 100%;
+    height: 100%;
+}
+.App {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-self: start;
+    justify-content: center;
+
+}
+.sample-grid {
+    width: 12rem;
+
+    display: grid;
+    grid-template-columns: repeat(3, 3rem);
+    gap: 1rem;
+
+    background-color: black;
+    .drum-pad {
+        width: 3rem;
+        height: 3rem;
+        background-color: red;
+
+        text-transform: uppercase;
+        text-align: center;
+        line-height: 3rem;
+
+        font-size: 2rem;
+    }
+}

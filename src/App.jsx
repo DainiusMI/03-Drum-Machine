@@ -7,20 +7,21 @@ import audioSamples from "./samples"
 
 export default function App() {
 
-
   const [displayScreen, setDisplayScreen] = React.useState("DISPLAY SCREEN")
 
   function triggerSample(event) {
     setDisplayScreen(event.target.id)
     event.target.firstChild.play()
+    console.log("click")
   }
 
   document.addEventListener("keypress", handleKeyPress)
   function handleKeyPress(event) {
     audioSamples.find(sample => {
      if (sample.triggerKey === event.key) {
-        document.getElementById(event.key).play()
-        setDisplayScreen(sample.id)
+        //document.getElementById(event.key).play()
+        //setDisplayScreen(sample.id)
+        document.getElementById(sample.id).click()
      }
     })
   }
