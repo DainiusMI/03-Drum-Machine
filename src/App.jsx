@@ -28,6 +28,13 @@ export default function App() {
 
   return (
     <div className="App" id="drum-machine">
+
+      <div className="controls-container">
+
+        <p id="display">{displayScreen}</p>  
+
+      </div>
+
       <div className="sample-grid">
         {
           audioSamples.map((sample, idx) => {
@@ -48,11 +55,7 @@ export default function App() {
           })
         }
       </div>
-      <div className="controls-container">
 
-        <div id="display">{displayScreen}</div>  
-
-      </div>
     </div>
   )
 }
