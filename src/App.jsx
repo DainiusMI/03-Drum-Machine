@@ -14,7 +14,6 @@ export default function App() {
     event.target.firstChild.play()
   }
 
-  
   document.addEventListener("keypress", handleKeyPress)
   function handleKeyPress(event) {
     audioSamples.find(sample => {
@@ -49,7 +48,6 @@ export default function App() {
                       triggerSample={triggerSample}
                       handleKeyPress={handleKeyPress}
                     />
-            
           })
         }
       </div>
