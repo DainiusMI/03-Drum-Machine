@@ -19,20 +19,18 @@ export default function App() {
   function handleKeyPress(event) {
     audioSamples.find(sample => {
      if (sample.triggerKey === event.key) {
-        document.getElementById(sample.id).click()
 
+        document.getElementById(sample.id).classList.add("active")
+        document.getElementById(sample.id).click()
+        setTimeout(
+          () => {document.getElementById(sample.id).classList.remove("active")}, 
+          100
+        )
      }
     })
   }
   
-  function handleKeyPress(event) {
-    console.log(event.key)
-    audioSamples.find(sample => {
-      if (sample.triggerKey === event.key) {
-         document.getElementById(sample.id).click()
-      }
-     })
-  }
+
   return (
     <div className="App" id="drum-machine">
 
