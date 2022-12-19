@@ -1,31 +1,38 @@
 import React from 'react'
-
-
+import DrumPad from './assets/components/DrumPad'
 import "./assets/styles/css/index.css"
-
 import audioSamples from "./samples"
+
+
 
 export default function App() {
 
-  const [displayScreen, setDisplayScreen] = React.useState("DISPLAY SCREEN")
+  const [displayScreen, setDisplayScreen] = React.useState("")
 
   function triggerSample(event) {
     setDisplayScreen(event.target.id)
     event.target.firstChild.play()
-    console.log("click")
   }
 
+  
   document.addEventListener("keypress", handleKeyPress)
   function handleKeyPress(event) {
     audioSamples.find(sample => {
      if (sample.triggerKey === event.key) {
-        //document.getElementById(event.key).play()
-        //setDisplayScreen(sample.id)
         document.getElementById(sample.id).click()
+
      }
     })
   }
-
+  
+  function handleKeyPress(event) {
+    console.log(event.key)
+    audioSamples.find(sample => {
+      if (sample.triggerKey === event.key) {
+         document.getElementById(sample.id).click()
+      }
+     })
+  }
   return (
     <div className="App" id="drum-machine">
 
@@ -38,20 +45,13 @@ export default function App() {
       <div className="sample-grid">
         {
           audioSamples.map((sample, idx) => {
-            return (
-              <div
-                key={idx}
-                id={sample.id}
-                className="drum-pad"
-                onClick={triggerSample}
-              >
-                <audio 
-                  id={sample.triggerKey}
-                  src={sample.url} 
-                  className="clip"
-                />
-              {sample.triggerKey}</div>
-            )
+            return <DrumPad 
+                      key={idx} 
+                      sample={sample} 
+                      triggerSample={triggerSample}
+                      handleKeyPress={handleKeyPress}
+                    />
+            
           })
         }
       </div>
